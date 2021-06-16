@@ -42,7 +42,7 @@ const WebScreens = () => {
     const { background } = useColors();
 
     const { darkMode } = useContext(GlobalContext);
-    const image = { uri: require("../../assets/bg.jpeg") };
+    const image = { uri: require("../../assets/bg.jpg") };
     const image2 = { uri: require("../../assets/bg2.jpeg") };
 
     const styles = StyleSheet.create({
@@ -61,50 +61,52 @@ const WebScreens = () => {
     return (
         <Router>
             <View style={{ flex: 1, backgroundColor: background }}>
-                {/* <Container> */}
-                <ImageBackground source={darkMode ? image2 : image} style={styles.image}>
-                    <Suspense fallback={<EmptyScreen />}>
-                        <Switch>
-                            <Route path={"/swap/my-orders"}>
-                                <MyLimitOrdersScreen />
-                            </Route>
-                            <Route path={"/swap"}>
-                                <SwapScreen />
-                            </Route>
-                            <Route path={"/liquidity/migrate"}>
-                                <Redirect to={"/migrate"} />
-                            </Route>
-                            <Route path={"/liquidity/remove"}>
-                                <RemoveLiquidityScreen />
-                            </Route>
-                            <Route path={"/liquidity"}>
-                                <LiquidityScreen />
-                            </Route>
-                            <Route path={"/farming/harvest"}>
-                                <HarvestScreen />
-                            </Route>
-                            <Route path={"/farming"}>
-                                <FarmingScreen />
-                            </Route>
-                            <Route path={"/migrate"}>
-                                <MigrateScreen />
-                            </Route>
-                            <Route path={"/staking/unstake"}>
-                                <UnstakeScreen />
-                            </Route>
-                            <Route path={"/staking"}>
-                                <StakeScreen />
-                            </Route>
-                            <Route path={"/"} exact={true}>
-                                <HomeScreen />
-                            </Route>
-                            <Redirect to={"/"} />
-                        </Switch>
-                    </Suspense>
-                    
-                    <WebHeader onExpandMenu={() => setMenuExpanded(true)} />
-                </ImageBackground>
-                {/* </Container> */}
+                <Container>
+                    <ImageBackground source={image} style={styles.image}>
+                        {/* <Bg src={image} /> */}
+                        <Suspense fallback={<EmptyScreen />}>
+                            <Switch>
+                                <Route path={"/swap/my-orders"}>
+                                    <MyLimitOrdersScreen />
+                                </Route>
+                                <Route path={"/swap"}>
+                                    <SwapScreen />
+                                </Route>
+                                <Route path={"/liquidity/migrate"}>
+                                    <Redirect to={"/migrate"} />
+                                </Route>
+                                <Route path={"/liquidity/remove"}>
+                                    <RemoveLiquidityScreen />
+                                </Route>
+                                <Route path={"/liquidity"}>
+                                    <LiquidityScreen />
+                                </Route>
+                                <Route path={"/farming/harvest"}>
+                                    <HarvestScreen />
+                                </Route>
+                                <Route path={"/farming"}>
+                                    <FarmingScreen />
+                                </Route>
+                                <Route path={"/migrate"}>
+                                    <MigrateScreen />
+                                </Route>
+                                <Route path={"/staking/unstake"}>
+                                    <UnstakeScreen />
+                                </Route>
+                                <Route path={"/staking"}>
+                                    <StakeScreen />
+                                </Route>
+                                <Route path={"/"} exact={true}>
+                                    <HomeScreen />
+                                </Route>
+                                <Redirect to={"/"} />
+                            </Switch>
+                        </Suspense>
+
+                        <WebHeader onExpandMenu={() => setMenuExpanded(true)} />
+
+                    </ImageBackground>
+                </Container>
 
                 {IS_DESKTOP && <WebFooter />}
 
@@ -150,3 +152,19 @@ const AppScreens = () => {
 const tabOptions = iconName => ({
     tabBarIcon: ({ color }) => <Icon type={"material-community"} name={iconName} color={color} />
 });
+
+const Bg = (props) => {
+
+    const styles = StyleSheet.create({
+        image: {
+            width: "100%",
+            height: "100%"
+        },
+    });
+
+    return (
+        <ImageBackground source={props.src} style={styles.image}>
+
+        </ImageBackground>
+    )
+}
