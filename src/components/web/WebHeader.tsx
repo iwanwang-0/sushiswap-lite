@@ -93,7 +93,7 @@ const Menu = () => {
             <MenuItem title={t("menu.migrate")} path={"/migrate"} iconSrc={require("../../../assets/icon-mig.png")} />
             {/* <MenuItem title={t("menu.stake")} path={"/staking"} /> */}
             {/* <MenuItem title={t("menu.farm")} path={"/farming"} /> */}
-            <DarkModeSwitch style={{ marginLeft: Spacing.small }} />
+            {/* <DarkModeSwitch style={{ marginLeft: Spacing.small }} /> */}
             <Status />
         </FlexView>
     );
