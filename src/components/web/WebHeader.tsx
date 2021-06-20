@@ -203,10 +203,10 @@ class FlavorForm extends React.Component {
     render() {
         return (
             <select value={'us'} onChange={this.handleChange}>
-                <option value="us">
-                    <Image source={FLAGS['us']} style={{ width: 30, height: 20 }} />
+                <option value="us" style={{backgroundImage: FLAGS['us'], width: 30, height: 30}}>
+                    {/* <Image source={FLAGS['us']} style={{ width: 30, height: 20 }} /> */}
                 </option>
-                <option value="cn">
+                {/* <option value="cn">
                     <Image source={FLAGS['cn']} style={{ width: 30, height: 20 }} />
                 </option>
                 <option value="kr">
@@ -220,7 +220,7 @@ class FlavorForm extends React.Component {
                 </option>
                 <option value="jp">
                     <Image source={FLAGS['jp']} style={{ width: 30, height: 20 }} />
-                </option>
+                </option> */}
             </select>
         );
     }

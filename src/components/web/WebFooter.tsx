@@ -44,14 +44,14 @@ const WebFooter = ({ simple = false }) => {
             <Text note={true} style={{ marginTop: Spacing.tiny, marginRight: '150px' }}>
                 2021 Dals Swap Tech Limited ALL.Rights .
             </Text>
-            {/* <FlexView style={{ marginTop: Spacing.small }}>
+            <FlexView style={{ marginTop: Spacing.small }}>
                 <Flag name={"us"} locale={"en"} />
                 <Flag name={"es"} locale={"es"} />
                 <Flag name={"fr"} locale={"fr"} />
                 <Flag name={"cn"} locale={"zh"} />
                 <Flag name={"jp"} locale={"jp"} />
                 <Flag name={"kr"} locale={"ko"} />
-            </FlexView> */}
+            </FlexView>
 
             {/* {IS_DESKTOP && <Cattle/>} */}
 
