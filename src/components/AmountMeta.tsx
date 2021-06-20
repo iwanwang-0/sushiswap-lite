@@ -25,7 +25,7 @@ const AmountMeta: FC<AmountMetaProps> = props => {
                 fontSize: IS_DESKTOP ? 28 : 20,
                 marginBottom: Spacing.normal,
                 // color: props.disabled ? placeholder : props.amount ? textDark : textLight
-                color: darkMode ? "#FFFFFF" : "#333333"
+                color: "#E20000"
             }}>
             {props.disabled ? t("n/a") : props.amount ? props.amount + " " + (props.suffix || "") : t("fetching")}
         </Text>

@@ -51,10 +51,10 @@ const SwapScreen = () => {
                 {/* <BackgroundImage /> */}
                 <Content>
                     <Title text={t("new-order")} style={{
-                        color: darkMode ? "#FFFFFF" : "#333333"
+                        // color: darkMode ? "#FFFFFF" : "#333333"
                     }} />
                     <Text light={true} style={{
-                        color: darkMode ? "#4B607E" : "#333333"
+                        // color: darkMode ? "#4B607E" : "#333333"
                     }}>{t("new-order-desc")}</Text>
                     <Swap />
                 </Content>

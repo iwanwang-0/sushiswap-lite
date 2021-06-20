@@ -148,7 +148,10 @@ const MenuItem = ({ title, path }) => {
                 fontWeight={active ? "regular" : "light"}
                 style={{
                     fontSize: 13,
-                    color: active ? accent : textLight
+                    height: '80px',
+                    color: active ? accent : textLight,
+                    borderBottomColor: active ? accent : textLight,
+                    borderBottomWidth: active ? 1 : 0,
                 }}>
                 {title}
             </Text>

@@ -9,6 +9,8 @@ export const DESKTOP_CONTENT_WIDTH = 540;
 export const SUB_MENU_HEIGHT = 40;
 export const IS_DESKTOP = SCREEN_WIDTH > DESKTOP_CONTENT_WIDTH;
 
+export const BILI = SCREEN_WIDTH / 1920;
+
 export const Spacing = IS_HIGH_RESOLUTION
     ? {
           tiny: 8,

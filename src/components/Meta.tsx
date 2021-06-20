@@ -33,7 +33,8 @@ const Meta: FC<MetaProps> = props => {
                 note={!IS_DESKTOP}
                 onPress={props.url ? onPress : undefined}
                 style={{
-                    color: props.disabled ? placeholder : props.text ? textMedium : textLight,
+                    // color: props.disabled ? placeholder : props.text ? textMedium : textLight,
+                    color: '#FFFFFF',
                     textDecorationLine: props.url ? "underline" : "none"
                 }}>
                 {text}

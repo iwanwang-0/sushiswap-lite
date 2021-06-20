@@ -77,7 +77,7 @@ const HomeScreen = () => {
                         disabled={loading}
                         style={{
                             fontSize: IS_DESKTOP ? 32 : 24,
-                            color: "#FF3333"
+                            color: "#E20000"
                         }}
                     />
                     <Home state={state} />

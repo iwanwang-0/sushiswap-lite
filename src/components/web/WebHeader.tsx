@@ -3,7 +3,7 @@ import { Image, TouchableHighlight, View } from "react-native";
 import { Icon } from "react-native-elements";
 import { Link, useRouteMatch } from "react-router-dom";
 
-import { HEADER_HEIGHT, HEADER_WIDTH, IS_DESKTOP, Spacing } from "../../constants/dimension";
+import { BILI, HEADER_HEIGHT, HEADER_WIDTH, IS_DESKTOP, Spacing } from "../../constants/dimension";
 import { EthersContext } from "../../context/EthersContext";
 import { GlobalContext } from "../../context/GlobalContext";
 import useColors from "../../hooks/useColors";
@@ -31,23 +31,21 @@ const WebHeader: FC<WebHeaderProps> = props => {
                 width: "100%",
                 height: HEADER_HEIGHT,
                 paddingBottom: Spacing.small,
-                backgroundColor: header,
-                borderBottomWidth: 1,
-                borderColor: borderDark
             }}>
             <FlexView
                 style={{
                     flex: 1,
                     width: IS_DESKTOP ? HEADER_WIDTH : "100%",
                     alignSelf: "center",
-                    justifyContent: "space-between",
+                    justifyContent: "space-evenly",
                     alignItems: "flex-end",
                     paddingTop: Spacing.small,
-                    paddingHorizontal: Spacing.normal
                 }}>
                 <Title />
-                
+
                 {IS_DESKTOP ? <Menu /> : <MenuIcon onExpand={props.onExpandMenu} />}
+
+                {/* <FlavorForm /> */}
             </FlexView>
         </View>
     );
@@ -56,11 +54,13 @@ const WebHeader: FC<WebHeaderProps> = props => {
 export const Title = () => {
     const { darkMode } = useContext(GlobalContext);
 
-    const logo1 = { uri: require("../../../assets/logo-1.png") };
-    const logo2 = { uri: require("../../../assets/logo-2.png") };
+    // const logo1 = { uri: require("../../../assets/logo-1.png") };
+    // const logo2 = { uri: require("../../../assets/logo-2.png") };
 
-    const SvgLogo = darkMode ? logo1 : logo2;
-    
+    const logo = { uri: require('../../../assets/logo.png') };
+
+    const SvgLogo = logo;
+
     return (
         <View style={{ alignSelf: "center" }}>
             <Link to={"/"} style={{ textDecoration: "none" }}>
@@ -69,9 +69,9 @@ export const Title = () => {
                     source={SvgLogo}
                     style={{
                         marginTop: 0,
-                        marginLeft: -16,
-                        width: 223,
-                        height: 60
+                        marginLeft: 0,
+                        width: 253 * BILI,
+                        height: 60 * BILI
                     }}
                 />
             </Link>
@@ -87,11 +87,11 @@ const Menu = () => {
                 height: "100%",
                 alignItems: "center"
             }}>
-            <MenuItem title={t("menu.home")} path={"/"} />
-            <MenuItem title={t("menu.swap")} path={"/swap"} />
-            <MenuItem title={t("menu.liquidity")} path={"/liquidity"} />
-            <MenuItem title={t("menu.migrate")} path={"/migrate"} />
-            <MenuItem title={t("menu.stake")} path={"/staking"} />
+            <MenuItem title={t("menu.home")} path={"/"} iconSrc={require("../../../assets/icon-home.png")} />
+            <MenuItem title={t("menu.swap")} path={"/swap"} iconSrc={require("../../../assets/icon-swap.png")} />
+            <MenuItem title={t("menu.liquidity")} path={"/liquidity"} iconSrc={require("../../../assets/icon-liq.png")} />
+            <MenuItem title={t("menu.migrate")} path={"/migrate"} iconSrc={require("../../../assets/icon-mig.png")} />
+            {/* <MenuItem title={t("menu.stake")} path={"/staking"} /> */}
             {/* <MenuItem title={t("menu.farm")} path={"/farming"} /> */}
             <DarkModeSwitch style={{ marginLeft: Spacing.small }} />
             <Status />
@@ -99,25 +99,29 @@ const Menu = () => {
     );
 };
 
-const MenuItem = ({ title, path }) => {
+const MenuItem = ({ title, path, iconSrc }) => {
     const { textDark, textLight } = useColors();
     const match = useRouteMatch(path);
     const active = (path === "/" ? match?.isExact : true) && match?.path?.startsWith(path);
     return (
         <Link to={path} style={{
-            marginLeft: Spacing.tiny,
+            marginLeft: Spacing.normal,
             marginBottom: -4,
             textDecoration: "none",
-            borderStyle: "solid",
-            borderWidth: "5px",
-            borderColor: "transparent"
+            borderBottomWidth: active ? '1px' : '0px',
+            borderBottomColor: active ? '#F9A428' : '#000000',
+            borderBottomStyle: 'solid',
+            height: '100%'
         }}>
+            <img src={iconSrc} width={18 * BILI} height={18 * BILI} />
             <Text
                 style={{
                     fontFamily: "regular",
-                    fontSize: 18,
-                    color: active ? "#FF3333" : textLight,
+                    fontSize: 16 * BILI,
+                    // color: active ? "#FF3333" : textLight,
                     padding: 3,
+                    marginLeft: '5px',
+                    // lineHeight: '100%'
                 }}>
                 {title}
             </Text>
@@ -146,17 +150,16 @@ const Status = () => {
         <TouchableHighlight onPress={onPress} disabled={!ethereum?.isWalletConnect}>
             <FlexView
                 style={{
-                    height: 28,
+                    backgroundColor: '#D7A235',
+                    height: 59 * BILI,
                     justifyContent: "center",
                     alignItems: "center",
-                    marginLeft: Spacing.small,
+                    marginLeft: 100,
                     paddingHorizontal: Spacing.small,
-                    borderRadius: 16,
-                    borderWidth: 1,
-                    borderColor: borderDark
+                    borderRadius: 30
                 }}>
-                <View style={{ backgroundColor: color, width: 6, height: 6, borderRadius: 3, marginRight: 12 }} />
-                <Text style={{ fontSize: 15, color: textLight, marginRight: 2 }}>{title}</Text>
+                {/* <View style={{ backgroundColor: color, width: 6, height: 6, borderRadius: 3, marginRight: 12 }} /> */}
+                <Text style={{ fontSize: 18 * 0.67, color: '#000', marginRight: 2 }}>{title}</Text>
                 {ethereum?.isWalletConnect && <CloseIcon />}
             </FlexView>
         </TouchableHighlight>
@@ -175,5 +178,52 @@ const CloseIcon = () => {
         />
     );
 };
+
+const FLAGS = {
+    us: require("../../../assets/flags/us.png"),
+    cn: require("../../../assets/flags/cn.png"),
+    kr: require("../../../assets/flags/kr.png"),
+    fr: require("../../../assets/flags/fr.png"),
+    es: require("../../../assets/flags/es.png"),
+    jp: require("../../../assets/flags/jp.png")
+};
+
+class FlavorForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { value: 'coconut' };
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({ value: event.target.value });
+    }
+
+    render() {
+        return (
+            <select value={'us'} onChange={this.handleChange}>
+                <option value="us">
+                    <Image source={FLAGS['us']} style={{ width: 30, height: 20 }} />
+                </option>
+                <option value="cn">
+                    <Image source={FLAGS['cn']} style={{ width: 30, height: 20 }} />
+                </option>
+                <option value="kr">
+                    <Image source={FLAGS['kr']} style={{ width: 30, height: 20 }} />
+                </option>
+                <option value="fr">
+                    <Image source={FLAGS['fr']} style={{ width: 30, height: 20 }} />
+                </option>
+                <option value="es">
+                    <Image source={FLAGS['es']} style={{ width: 30, height: 20 }} />
+                </option>
+                <option value="jp">
+                    <Image source={FLAGS['jp']} style={{ width: 30, height: 20 }} />
+                </option>
+            </select>
+        );
+    }
+}
 
 export default WebHeader;

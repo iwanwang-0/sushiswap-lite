@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Image, TouchableOpacity, TouchableHighlight, View } from "react-native";
 import { useHistory, useLocation } from "react-router-dom";
 
@@ -34,33 +34,26 @@ const WebFooter = ({ simple = false }) => {
             padding: Spacing.small,
             alignItems: "center",
             position: IS_DESKTOP ? "fixed" : "",
-            bottom: 0,
-            backgroundColor: IS_DESKTOP ? header : "transparent"
+            bottom: 20,
         }}>
             {!simple && (
                 <>
                     <SocialIcons />
-                    {/* <TouchableHighlight onPress={onPressAlchemy}>
-                        <Image
-                            source={require("../../../assets/alchemy.png")}
-                            style={{ width: 188, height: 40, marginTop: Spacing.tiny }}
-                        />
-                    </TouchableHighlight> */}
                 </>
             )}
-            {/* <Text note={true} style={{ marginTop: Spacing.tiny }}>
-                Built with ❤️ by KobeSwap (v{Constants.manifest.version})
-            </Text> */}
-            <FlexView style={{ marginTop: Spacing.small }}>
+            <Text note={true} style={{ marginTop: Spacing.tiny, marginRight: '150px' }}>
+                2021 Dals Swap Tech Limited ALL.Rights .
+            </Text>
+            {/* <FlexView style={{ marginTop: Spacing.small }}>
                 <Flag name={"us"} locale={"en"} />
                 <Flag name={"es"} locale={"es"} />
                 <Flag name={"fr"} locale={"fr"} />
                 <Flag name={"cn"} locale={"zh"} />
                 <Flag name={"jp"} locale={"jp"} />
                 <Flag name={"kr"} locale={"ko"} />
-            </FlexView>
+            </FlexView> */}
 
-            {IS_DESKTOP && <Cattle/>}
+            {/* {IS_DESKTOP && <Cattle/>} */}
 
         </View>
     );
@@ -79,28 +72,28 @@ const Flag = ({ name, locale }) => {
     );
 };
 
-const Cattle = () => {
-    const [isHover, setIsHover] = useState({ uri: require("../../../assets/cattle-1.png") });
+// const Cattle = () => {
+//     const [isHover, setIsHover] = useState({ uri: require("../../../assets/cattle-1.png") });
 
-    return (
-        <div style={{
-                position: "absolute",
-                top: -256,
-                right: -50,
-                width: 430,
-                height: 300,
-            }} onMouseOver={() => {setIsHover({ uri: require("../../../assets/cattle-2.png") })}}
-            onMouseOut={() => {setIsHover({ uri: require("../../../assets/cattle-1.png") })}}>
-                <Image
-                    source={isHover}
-                    onError={() => { }}
-                    style={{
-                        width: 430,
-                        height: 300
-                    }}
-                />
-            </div>
-    );
-}
+//     return (
+//         <div style={{
+//                 position: "absolute",
+//                 top: -256,
+//                 right: -50,
+//                 width: 430,
+//                 height: 300,
+//             }} onMouseOver={() => {setIsHover({ uri: require("../../../assets/cattle-2.png") })}}
+//             onMouseOut={() => {setIsHover({ uri: require("../../../assets/cattle-1.png") })}}>
+//                 <Image
+//                     source={isHover}
+//                     onError={() => { }}
+//                     style={{
+//                         width: 430,
+//                         height: 300
+//                     }}
+//                 />
+//             </div>
+//     );
+// }
 
 export default WebFooter;

@@ -5,7 +5,7 @@ import useColors from "../hooks/useColors";
 
 const SelectIcon = () => {
     const { accent } = useColors();
-    return <Icon type={"material-community"} name={"chevron-right"} color={accent} style={{ marginLeft: 4 }} />;
+    return <Icon type={"material-community"} name={"chevron-right"} color={'#FFFFFF'} style={{ marginLeft: 4 }} />;
 };
 
 export default SelectIcon;

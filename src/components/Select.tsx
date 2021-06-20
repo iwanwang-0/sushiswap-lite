@@ -64,11 +64,11 @@ const Item = (props: {
             <FlexView style={{ alignItems: "center" }}>
                 <View style={{ flex: 1 }}>
                     <Text fontWeight={"regular"} style={{
-                        color: darkMode ? "#4B607E" : "#333333"
+                        color: darkMode ? "#FFFFFF" : "#FFFFFF"
                     }}>{props.option.title}</Text>
                     <Text note={true} style={{
                         marginTop: 4,
-                        color: darkMode ? "#AAAAAA" : "#333333"
+                        color: darkMode ? "#425058" : "#425058"
                     }}>
                         {props.option.description}
                     </Text>

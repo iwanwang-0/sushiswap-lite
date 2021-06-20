@@ -8,7 +8,7 @@ import { DefaultTheme, NavigationContainer, Theme } from "@react-navigation/nati
 import useAsyncEffect from "use-async-effect";
 import MobileWebMenu from "../components/web/MobileWebMenu";
 import WebHeader from "../components/web/WebHeader";
-import { IS_DESKTOP } from "../constants/dimension";
+import { BILI, IS_DESKTOP } from "../constants/dimension";
 import { EthersContext } from "../context/EthersContext";
 import { GlobalContext } from "../context/GlobalContext";
 import useColors from "../hooks/useColors";
@@ -42,14 +42,10 @@ const WebScreens = () => {
     const { background } = useColors();
 
     const { darkMode } = useContext(GlobalContext);
-    const image = { uri: require("../../assets/bg.jpeg") };
-    const image2 = { uri: require("../../assets/bg2.jpeg") };
+    const image = { uri: require("../../assets/bg.jpg") };
 
     const styles = StyleSheet.create({
         image: {
-            // flex: 1,
-            // resizeMode: "cover",
-            // justifyContent: "center"
             width: "100%",
             height: "100%"
         },
@@ -61,8 +57,53 @@ const WebScreens = () => {
     return (
         <Router>
             <View style={{ flex: 1, backgroundColor: background }}>
-                {/* <Container> */}
-                <ImageBackground source={darkMode ? image2 : image} style={styles.image}>
+                <ImageBackground source={image} style={styles.image}>
+                <img src={require("../../assets/bg-1.png")} style={{
+                            width: 1346 * BILI,
+                            height: 459 * BILI,
+                            position: 'absolute',
+                            top: 0,
+                            left: 0
+                        }} />
+
+                        <img src={require("../../assets/bg-2.png")} style={{
+                            width: 290 * BILI,
+                            height: 435 * BILI,
+                            position: 'absolute',
+                            bottom: 0,
+                            left: 0
+                        }} />
+
+                        <img src={require("../../assets/bg-3.png")} style={{
+                            width: 200 * BILI,
+                            height: 81 * BILI,
+                            position: 'absolute',
+                            bottom: 0,
+                            left: 290 * BILI
+                        }} />
+
+                        <img src={require("../../assets/bg-4.png")} style={{
+                            width: 429 * BILI,
+                            height: 231 * BILI,
+                            position: 'absolute',
+                            bottom: 0,
+                            right: 0
+                        }} />
+
+                        <img src={require("../../assets/dog1.png")} style={{
+                            width: 334 * BILI,
+                            height: 406 * BILI,
+                            position: 'absolute',
+                            top: 230,
+                            left: 100
+                        }} />
+                        <img src={require("../../assets/dog2.png")} style={{
+                            width: 394 * BILI,
+                            height: 486 * BILI,
+                            position: 'absolute',
+                            top: 200,
+                            right: 100
+                        }} />
                     <Suspense fallback={<EmptyScreen />}>
                         <Switch>
                             <Route path={"/swap/my-orders"}>
@@ -104,7 +145,6 @@ const WebScreens = () => {
                     
                     <WebHeader onExpandMenu={() => setMenuExpanded(true)} />
                 </ImageBackground>
-                {/* </Container> */}
 
                 {IS_DESKTOP && <WebFooter />}
 

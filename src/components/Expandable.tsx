@@ -29,7 +29,7 @@ const Expandable: FC<ExpandableProps> = props => {
     return (
         <View style={props.style}>
             <Heading text={props.title} buttonText={buttonText} onPressButton={onPress} style={{
-                color: darkMode ? "#FFFFFF" : "#333333"
+                // color: darkMode ? "#FFFFFF" : "#333333"
             }}/>
             <View style={{ display: shouldExpand ? "flex" : "none" }}>{props.children}</View>
         </View>

@@ -151,7 +151,7 @@ const TokenItem = (props: {
                             style={{ 
                                 flex: 1, 
                                 textAlign: "right",
-                                color: darkMode ? "#FFFFFF" : "#333333"
+                                // color: darkMode ? "#FFFFFF" : "#333333"
                             }}
                         />
                         {IS_DESKTOP && <TokenSymbol token={props.token} disabled={props.disabled} />}
