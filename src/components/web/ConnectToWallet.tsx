@@ -18,14 +18,15 @@ const ConnectWallet = () => {
     const source = metaMask
         ? darkMode
             ? require("../../../assets/metamask-dark.png")
-            : require("../../../assets/metamask.png")
-        : require("../../../assets/sushiswap.png");
+            : require("../../../assets/metamask-dark.png")
+        : require("../../../assets/metamask-dark.png");
     return (
         <Content>
             <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
                 <Image
                     source={source}
-                    style={{ width: metaMask ? 223 : 200, height: metaMask ? 183 : 200, marginBottom: Spacing.normal }}
+                    // style={{ width: metaMask ? 223 : 200, height: metaMask ? 183 : 200, marginBottom: Spacing.normal }}
+                    style={{ width: metaMask ? 223 : 223, height: metaMask ? 183 : 183, marginBottom: Spacing.normal }}
                 />
                 {window.ethereum && <ConnectButton />}
                 <WalletConnectButton />

@@ -33,7 +33,7 @@ const WebFooter = ({ simple = false }) => {
             width: "100%",
             padding: Spacing.small,
             alignItems: "center",
-            position: IS_DESKTOP ? "fixed" : "",
+            // position: IS_DESKTOP ? "fixed" : "",
             bottom: 20,
         }}>
             {!simple && (
@@ -41,9 +41,12 @@ const WebFooter = ({ simple = false }) => {
                     <SocialIcons />
                 </>
             )}
-            <Text note={true} style={{ marginTop: Spacing.tiny, marginRight: '150px' }}>
-                2021 Dals Swap Tech Limited ALL.Rights .
-            </Text>
+            {
+                IS_DESKTOP && <Text note={true} style={{ marginTop: Spacing.tiny, marginRight: '150px' }}>
+                    2021 Dals Swap Tech Limited ALL.Rights .
+                </Text>
+            }
+
             <FlexView style={{ marginTop: Spacing.small }}>
                 <Flag name={"us"} locale={"en"} />
                 <Flag name={"es"} locale={"es"} />

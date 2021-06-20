@@ -85,9 +85,9 @@ const HomeScreen = () => {
                 {/* </ImageBackground> */}
 
 
-                {/* {Platform.OS === "web" && <WebFooter />} */}
+                {Platform.OS === "web" && <WebFooter />}
 
-                {!IS_DESKTOP && <WebFooter />}
+                {/* {!IS_DESKTOP && <WebFooter />} */}
 
                 {IS_DESKTOP && <View style={{ height: 200, padding: 20 }}></View>}
             </Container>

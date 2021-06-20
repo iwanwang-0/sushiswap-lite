@@ -10,7 +10,8 @@ const DarkModeSwitch = props => {
     const { darkMode, setDarkMode } = useContext(GlobalContext);
     const { overlay } = useColors();
     const onPress = async () => {
-        await setDarkMode(!darkMode);
+        // await setDarkMode(!darkMode);
+        await setDarkMode(true);
     };
     return (
         <View style={props.style}>

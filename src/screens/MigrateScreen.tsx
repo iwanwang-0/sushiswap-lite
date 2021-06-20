@@ -42,9 +42,9 @@ const MigrateScreen = () => {
                     <Text light={true}>{t("migrate-liquidity-desc")}</Text>
                     <Migrate />
                 </Content>
-                {/* {Platform.OS === "web" && <WebFooter />} */}
+                {Platform.OS === "web" && <WebFooter />}
 
-                {!IS_DESKTOP && <WebFooter />}
+                {/* {!IS_DESKTOP && <WebFooter />} */}
 
                 {IS_DESKTOP && <View style={{ height: 200, padding: 20 }}></View>}
             </Container>
@@ -130,7 +130,7 @@ const AmountInfo = ({ state }: { state: MigrateState }) => {
     const disabled = !state.selectedLPToken || isEmptyValue(state.amount);
     return (
         <InfoBox>
-            <Meta label={state.selectedLPToken?.symbol || "KobeSwap LP"} text={state.amount} disabled={disabled} />
+            <Meta label={state.selectedLPToken?.symbol || "DALSSWAP LP"} text={state.amount} disabled={disabled} />
             <Controls state={state} />
         </InfoBox>
     );

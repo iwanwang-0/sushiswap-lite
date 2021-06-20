@@ -58,52 +58,66 @@ const WebScreens = () => {
         <Router>
             <View style={{ flex: 1, backgroundColor: background }}>
                 <ImageBackground source={image} style={styles.image}>
-                <img src={require("../../assets/bg-1.png")} style={{
+                    {
+                        IS_DESKTOP && <img src={require("../../assets/bg-1.png")} style={{
                             width: 1346 * BILI,
                             height: 459 * BILI,
                             position: 'absolute',
                             top: 0,
                             left: 0
                         }} />
+                    }
 
-                        <img src={require("../../assets/bg-2.png")} style={{
+                    {
+                        IS_DESKTOP && <img src={require("../../assets/bg-2.png")} style={{
                             width: 290 * BILI,
                             height: 435 * BILI,
                             position: 'absolute',
                             bottom: 0,
                             left: 0
                         }} />
+                    }
 
-                        <img src={require("../../assets/bg-3.png")} style={{
+                    {
+                        IS_DESKTOP && <img src={require("../../assets/bg-3.png")} style={{
                             width: 200 * BILI,
                             height: 81 * BILI,
                             position: 'absolute',
                             bottom: 0,
                             left: 290 * BILI
                         }} />
+                    }
 
-                        <img src={require("../../assets/bg-4.png")} style={{
+                    {
+                        IS_DESKTOP && <img src={require("../../assets/bg-4.png")} style={{
                             width: 429 * BILI,
                             height: 231 * BILI,
                             position: 'absolute',
                             bottom: 0,
                             right: 0
                         }} />
+                    }
 
-                        <img src={require("../../assets/dog1.png")} style={{
+                    {
+                        IS_DESKTOP && <img src={require("../../assets/dog1.png")} style={{
                             width: 334 * BILI,
                             height: 406 * BILI,
                             position: 'absolute',
                             top: 230,
                             left: 100
                         }} />
-                        <img src={require("../../assets/dog2.png")} style={{
+                    }
+
+                    {
+                        IS_DESKTOP && <img src={require("../../assets/dog2.png")} style={{
                             width: 394 * BILI,
                             height: 486 * BILI,
                             position: 'absolute',
                             top: 200,
                             right: 100
                         }} />
+                    }
+
                     <Suspense fallback={<EmptyScreen />}>
                         <Switch>
                             <Route path={"/swap/my-orders"}>
@@ -142,11 +156,11 @@ const WebScreens = () => {
                             <Redirect to={"/"} />
                         </Switch>
                     </Suspense>
-                    
+
                     <WebHeader onExpandMenu={() => setMenuExpanded(true)} />
                 </ImageBackground>
 
-                {IS_DESKTOP && <WebFooter />}
+                {/* {IS_DESKTOP && <WebFooter />} */}
 
                 {!IS_DESKTOP && <MobileWebMenu expanded={menuExpanded} onCollapse={() => setMenuExpanded(false)} />}
             </View>
